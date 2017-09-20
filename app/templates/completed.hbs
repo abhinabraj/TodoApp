@@ -1,0 +1,52 @@
+<div id="ember225" class="ember-view">
+  <section id="todoapp">
+    <header id="header">
+        <h1>todos</h1>
+       {{
+         input type="text" 
+         id="new-todo" 
+         placeholder="What needs to be done?" 
+         value=newTitle 
+         action="createTodo"
+       }}
+    </header>
+    <section id="main" class="ember-view">
+
+      {{input type="checkbox" id="toggle-all" checked=isChecked click=(action "selectAll" model)}}
+          <ul id="todo-list" class="todo-list">
+            {{#each model as |todo|}}
+                <li class="completed" class="ember-view" id="ember267">
+                    <div class="view">
+                    {{#if todo.isCompleted}}
+                      {{input type="checkbox" class="myCheckbox" checked=todo.isCompleted click=(action "completedTodo" todo)}}                        
+                            <label class="myLabel" {{action "editTodo" todo on="doubleClick"}}>{{todo.title}}</label>
+                       {{/if}}
+                        <button class="destroy" {{action 'deleteTodo' todo}}></button>
+                    </div>
+                    <input type="text" autofocus="" class="edit">
+                </li>   
+                {{/each}}
+            </ul>
+    </section>
+
+      <footer id="footer">
+        <span id="todo-count"><strong>{{todoCount}}</strong> item left</span>
+        <ul id="filters">
+          <li class="active">{{#link-to 'application' }}All{{/link-to}}</li>
+          {{!-- <li><a href="#/" id="ember275" class="selected ember-view">All</a></li> --}}
+          <li>{{#link-to 'active' }}Active{{/link-to}}</li>
+          <li>{{#link-to 'completed' }}Completed{{/link-to}}</li>
+        </ul>
+          <button id="clear-completed" {{action 'clearCompleted' model}}>Clear completed</button>
+      </footer>
+</section>
+<footer id="info">
+  <p>Double-click to edit a todo</p>
+  <p>
+    Created by
+    <a href="http://github.com/cibernox">Miguel Camba</a>,
+    <a href="http://github.com/addyosmani">Addy Osmani</a>
+  </p>
+  <p>Part of <a href="http://todomvc.com">TodoMVC</a></p>
+</footer>
+</div>
