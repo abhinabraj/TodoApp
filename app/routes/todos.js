@@ -1,5 +1,6 @@
 import Ember from 'ember';
 
+
 export default Ember.Route.extend({
 	model() {
 		return this.store.findAll('todo');
@@ -8,25 +9,10 @@ export default Ember.Route.extend({
 	setupController(controller, model){
 		this._super(...arguments);
 		controller.set('newTitle', '');
-		this.controller.set('items', model);
 	},
 
 	actions: {
-		createTodo: function(){
-			var controller = this.controller;
-			var title = controller.get('newTitle');
-			
-
-			var todo = this.store.createRecord('todo', {
-                title: title,
-                isCompleted: false
-            });
-
-           controller.set('newTitle', '');
-
-           todo.save();
-
-		},
+		
 
 		deleteTodo: function(todo){
 			todo.destroyRecord();

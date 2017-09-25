@@ -36,6 +36,7 @@
     "ember-localstorage-adapter": "^1.0.0",
     "ember-resolver": "^4.0.0",
     "ember-source": "~2.14.1",
+    "ember-validations":"2.0.0-alpha.4",
     "ember-welcome-page": "^3.0.0",
     "loader.js": "^4.2.3"
   },

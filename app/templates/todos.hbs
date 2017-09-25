@@ -12,7 +12,7 @@
 		</header>
     <section id="main" class="ember-view">
 
-    	{{input type="checkbox" id="toggle-all" checked=isChecked click=(action "selectAll" model)}}
+    	{{input type="checkbox" id="toggle-all" checked=allChecked}}
         	<ul id="todo-list" class="todo-list">
         		{{#each model as |todo|}}
                 <li class={{if todo.isCompleted "completed"}} class="ember-view">
